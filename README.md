@@ -6,7 +6,7 @@
 <p>Os escalonadores presentes na simulação são: <a href="#first-come-first-service"><i>First-Come First-Service</i></a> (FCFS),
 <a href="#shortest-job-first"><i>Shortest Job First</i></a> (SJF),
 <a href="#shortest-remaining-time-first"><i>Shortest-Remaining-Time First</i></a> (SRTF), <a href="#roundrobin"><i>RoundRobin</i></a>
-e uma fila <a href="#multinivel"><i>multinível</i></a>.</p>
+e uma fila <a href="#multinível"><i>multinível</i></a>.</p>
 
 <h2>Execução</h2>
 Por linha de comando:</br>
