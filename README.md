@@ -1,4 +1,4 @@
-# SImulador-de-Escalonamento-de-Processos
+# Simulador-de-Escalonamento-de-Processos
 
 <img src="https://img.shields.io/pypi/pyversions/Django.svg" />
 
