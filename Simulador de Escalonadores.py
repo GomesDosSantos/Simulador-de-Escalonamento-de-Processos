@@ -50,14 +50,13 @@ def saida( processos , titulo ):
     
 # Padrão de Carregamento de Arquivo
 # Retorna uma lista de processos
-def carregarArquivo():
+def carregarArquivo( nome ):
     # Entrada da pasta tem que SER fornecida pelo usuário
     import re
     import string
 
     o = ()
-    #with open( 'C:\\Users\\Aluno\\Desktop\\m\\processos.txt' , 'r' ) as a:
-    with open( 'C:\\Users\\bugot\\OneDrive - Fatec Centro Paula Souza\\3º Sem\\4 - Sistemas Operacionais I\\Exercícios\\1 - Escalonadores\\processoe.txt' , 'r' ) as a:
+    with open( '{:s}.txt'.format( nome ) , 'r' ) as a:
         o = a.readlines()
     
     l = list()
@@ -363,21 +362,23 @@ def multinivel( lista ):
 # Padrão de Início dos processos
 def iniciar():
 
-    n = int(input("Qual a quantidede de processos?"))
     lista = []
 
     c = input("Burst Manual, Aleatório ou por Arquivo? (M | A | B - respectivamente)")
 
     if c == "A":
+        n = int(input("Qual a quantidede de processos?"))
         #burst e tempo de chegada automático
         for i in range(n):
             proc = Processo( 'p{:}'.format(i) , random.randint(1, 100) , random.randint(0, 15) , 0 , 0 , random.randint(1,20) , 0 )
             lista.append(proc)
     elif c == "B":
-        print( 'Tentativa de carregar o arquivo: processos.txt' )
-        lista = carregarArquivo() # RETORNARÁ a lista de Objetos
+        nome = input("Digite o nome do arquivo (sem .txt):")
+        print( f'Tentativa de carregar o arquivo: {nome}.txt' )
+        lista = carregarArquivo( nome ) # RETORNARÁ a lista de Objetos
         
     else:
+        n = int(input("Qual a quantidede de processos?"))
         #burst e tempo de chegada manual
         for i in range(n):
             b = int(input("P" + str(i) +" Burst:"))
@@ -399,4 +400,3 @@ if __name__ == '__main__':
 
     # Iniciar e carregar qualquer coisa que seja necessária
     iniciar()
-
