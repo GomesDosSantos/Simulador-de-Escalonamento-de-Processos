@@ -386,8 +386,8 @@ def iniciar():
                     q = int(input("P" + str(i) + " Quantum: " ) )
                     proc = Processo( 'p{:}'.format(i) , b , t , 0 , 0 , q , 0 )
                     lista.append(proc)
-            #else:
-                #exit( 0 )
+            else:
+                exit( 0 )
         except:
             print( 'Entrada inválida' )
             #exit( 0 )
