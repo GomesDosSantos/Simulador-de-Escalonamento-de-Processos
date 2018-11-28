@@ -10,7 +10,7 @@ e uma fila <a href="#multinível"><i>multinível</i></a>.</p>
 
 <h2>Execução</h2>
 Por linha de comando:</br>
-<code>$ python "Simulador de Escalonadores.py"</code>
+<code>$ python "simulador.py"</code>
 
 <h2>Algoritmos</h2>
 <h3>First-Come First-Service</h3>
