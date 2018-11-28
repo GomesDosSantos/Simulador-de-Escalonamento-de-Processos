@@ -364,35 +364,39 @@ def iniciar():
 
     lista = []
 
-    c = input("Burst Manual, Aleatório ou por Arquivo? (M | A | B - respectivamente)")
-
-    if c == "A":
-        n = int(input("Qual a quantidede de processos?"))
-        #burst e tempo de chegada automático
-        for i in range(n):
-            proc = Processo( 'p{:}'.format(i) , random.randint(1, 100) , random.randint(0, 15) , 0 , 0 , random.randint(1,20) , 0 )
-            lista.append(proc)
-    elif c == "B":
-        nome = input("Digite o nome do arquivo (sem .txt):")
-        print( f'Tentativa de carregar o arquivo: {nome}.txt' )
-        lista = carregarArquivo( nome ) # RETORNARÁ a lista de Objetos
-        
-    else:
-        n = int(input("Qual a quantidede de processos?"))
-        #burst e tempo de chegada manual
-        for i in range(n):
-            b = int(input("P" + str(i) +" Burst:"))
-            t = int(input("P" + str(i) +" Tempo de Chegada:"))
-            q = int(input("P" + str(i) + " Quantum: " ) )
-            proc = Processo( 'p{:}'.format(i) , b , t , 0 , 0 , q , 0 )
-            lista.append(proc)
-
-    # Executa e mostra o resultado de todos os simuladores
-    saida( fcfs(lista) , 'FCFS' )
-    saida( sjf(lista) , 'SJF' )
-    saida( srjf(lista) , 'SRJF' )
-    saida( rr(lista) , 'Round Robin' )
-    saida( multinivel(lista) , 'Multinível' )
+    while True:
+        c = input("Burst Manual, Aleatório ou por Arquivo? (M | A | B - respectivamente)\nPara sair: S\n")
+        try:
+            if c == "A":
+                n = int(input("Qual a quantidede de processos?"))
+                #burst e tempo de chegada automático
+                for i in range(n):
+                    proc = Processo( 'p{:}'.format(i) , random.randint(1, 100) , random.randint(0, 15) , 0 , 0 , random.randint(1,20) , 0 )
+                    lista.append(proc)
+            elif c == "B":
+                nome = input("Digite o nome do arquivo (sem .txt):")
+                print( f'Tentativa de carregar o arquivo: {nome}.txt' )
+                lista = carregarArquivo( nome ) # RETORNARÁ a lista de Objetos
+            elif c == "M":
+                n = int(input("Qual a quantidede de processos?"))
+                #burst e tempo de chegada manual
+                for i in range(n):
+                    b = int(input("P" + str(i) +" Burst:"))
+                    t = int(input("P" + str(i) +" Tempo de Chegada:"))
+                    q = int(input("P" + str(i) + " Quantum: " ) )
+                    proc = Processo( 'p{:}'.format(i) , b , t , 0 , 0 , q , 0 )
+                    lista.append(proc)
+            else:
+                exit( 0 )
+        except:
+            print( 'Entrada inválida' )
+            exit( 0 )
+            # Executa e mostra o resultado de todos os simuladores
+        saida( fcfs(lista) , 'FCFS' )
+        saida( sjf(lista) , 'SJF' )
+        saida( srjf(lista) , 'SRJF' )
+        saida( rr(lista) , 'Round Robin' )
+        saida( multinivel(lista) , 'Multinível' )
 
 
 ## Main
